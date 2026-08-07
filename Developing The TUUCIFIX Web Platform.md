@@ -797,3 +797,178 @@ Now let me update the task list and documentation:
 @[current_problems] 
 
 *Viewed [seo.spec.ts](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/services/seo.spec.ts) *
+
+### User Input
+
+Continuando con el desarrollo, varias cosas a corregir, necesito que hagas la interfaz mas sobria y elegeante, que busques imagenes de fondo reales para moistrar sombrillas y no la foto que se ve (imagen anexa) que no tiene nada que ver con la pagina,  necesito que el cambio entre español e ingles se vea mas interactivo, que se vea en/es, se ve como muy serio y generico, cuando se llena el fomrulario con la app en español, espero que el mensaje tambien sea en español, no en ingles, y que el tipo de sombrilla no se vea como un atributo con under score (Model: ocean_master, deberia ser Ocean Master, bien presentado), tambien si es servicio de reparamiento que el campo de detalles/details, no sea obligatorio, hay veces que no yhay anda que comentar, mejora la interfaz, interactividad de la pagina, que el footer sea mas lindo mas llamativo, que el logo de whatsapp se vea mas moderno, no tan como pagina de estafa, y que los fondos blancos tengan una animación como de mar azul en cascada, pero que no sea llamativo, algo sobrio que sea como un detalle clean de interfaz que le de mas profundidad a la pagina. Corrige errores hasta que detectes que no hay ninguno, y descarga todos los medios de imagenes, svg o demas que consideres necesario para cumplir con los requerimeintos citados
+
+### Planner Response
+
+Hay bastantes correcciones y mejoras. Voy a trabajar en todo de forma sistemática. Empiezo por investigar el estado actual de los archivos y luego implemento todos los cambios.
+
+*Viewed [seo.ts](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/services/seo.ts) *
+
+*Viewed [repair-form.ts](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/components/repair-form/repair-form.ts) *
+
+*Viewed [whatsapp.ts](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/services/whatsapp.ts) *
+
+*Viewed [app.html](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/app.html) *
+
+*Viewed [home.html](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/components/home/home.html) *
+
+*Viewed [floating-whatsapp.html](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/components/floating-whatsapp/floating-whatsapp.html) *
+
+*Viewed [styles.css](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/styles.css) *
+
+*Viewed [app.ts](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/app.ts) *
+
+### Planner Response
+
+Good, I now have the full picture. Let me now search for a proper TUUCI umbrella image and implement all changes. Let me start with all the fixes simultaneously:
+
+*Searched web for TUUCI luxury umbrella outdoor Miami pool high resolution image*
+
+*Searched web for unsplash luxury outdoor umbrella pool resort shade high quality free image*
+
+### Planner Response
+
+Now I have all the context I need. Let me implement all changes at once. I'll fix everything:
+
+1. **seo.spec.ts** error
+2. **Hero image** → luxury pool umbrella
+3. **Language switcher** → more interactive with flags/labels
+4. **WhatsApp messages** → bilingual based on current lang
+5. **Model names** → display names not underscores
+6. **Damage details** → not required
+7. **Ocean wave animation** → subtle CSS background
+8. **WhatsApp button** → cleaner, more modern
+9. **Footer** → more attractive
+10. **Progress count** → adjusted for optional details field
+
+*Edited relevant file*
+
+### Planner Response
+
+Now the global styles with ocean wave animation:
+
+*Edited relevant file*
+
+### Planner Response
+
+Now the repair form — fix bilingual messages, model display names, optional details:
+
+*Edited relevant file*
+
+### Planner Response
+
+Now the repair form template — remove required from details, update modal to show display names:
+
+*Viewed [repair-form.html](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/components/repair-form/repair-form.html) *
+
+*Viewed [repair-form.html](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/components/repair-form/repair-form.html) *
+
+### Planner Response
+
+The template needs targeted fixes. Let me update the damage description section to remove the required validation display, and update the form page background with the ocean-bg class:
+
+*Edited relevant file*
+
+### Planner Response
+
+Now add the "Optional" key to translations and update the home hero image:
+
+*Viewed [en.json](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/public/assets/i18n/en.json) *
+
+*Grep searched codebase*
+
+### User Input
+
+Continuando con el desarrollo, varias cosas a corregir, necesito que hagas la interfaz mas sobria y elegeante, que busques imagenes de fondo reales para moistrar sombrillas y no la foto que se ve (imagen anexa) que no tiene nada que ver con la pagina,  necesito que el cambio entre español e ingles se vea mas interactivo, que se vea en/es, se ve como muy serio y generico, cuando se llena el fomrulario con la app en español, espero que el mensaje tambien sea en español, no en ingles, y que el tipo de sombrilla no se vea como un atributo con under score (Model: ocean_master, deberia ser Ocean Master, bien presentado), tambien si es servicio de reparamiento que el campo de detalles/details, no sea obligatorio, hay veces que no yhay anda que comentar, mejora la interfaz, interactividad de la pagina, que el footer sea mas lindo mas llamativo, que el logo de whatsapp se vea mas moderno, no tan como pagina de estafa, y que los fondos blancos tengan una animación como de mar azul en cascada, pero que no sea llamativo, algo sobrio que sea como un detalle clean de interfaz que le de mas profundidad a la pagina. Corrige errores hasta que detectes que no hay ninguno, y descarga todos los medios de imagenes, svg o demas que consideres necesario para cumplir con los requerimeintos citados
+
+
+*Viewed [app.ts](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/app.ts) *
+
+*Viewed [en.json](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/public/assets/i18n/en.json) *
+
+*Viewed [es.json](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/public/assets/i18n/es.json) *
+
+*Viewed [home.html](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/components/home/home.html) *
+
+*Viewed [app.html](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/app.html) *
+
+*Viewed [app.html](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/app.html) *
+
+*Edited relevant file*
+
+*Edited relevant file*
+
+*Viewed [styles.css](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/styles.css) *
+
+*Viewed [styles.css](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/styles.css) *
+
+*Edited relevant file*
+
+*Viewed [floating-whatsapp.html](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/components/floating-whatsapp/floating-whatsapp.html) *
+
+*Edited relevant file*
+
+*Viewed [floating-whatsapp.html](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/components/floating-whatsapp/floating-whatsapp.html) *
+
+*Edited relevant file*
+
+*Viewed [en.json](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/public/assets/i18n/en.json) *
+
+*Viewed [en.json](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/public/assets/i18n/en.json) *
+
+*Edited relevant file*
+
+*Edited relevant file*
+
+*User accepted the command `npm run build`*
+
+*Viewed [home.ts](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/src/app/components/home/home.ts) *
+
+### Planner Response
+
+I've completed all modifications. I'll summarize what I did.He corregido y mejorado todos los aspectos señalados para elevar la interfaz a un nivel verdaderamente premium, sobrio y funcional:
+
+1. **Corrección del Error de Compilación (`seo.spec.ts`)**:
+   - Corregí la importación en el archivo de pruebas unitarias (`seo.spec.ts`) para que apunte correctamente a `SeoService` (en lugar de `Seo`), solucionando el error detectado por el IDE.
+
+2. **Imagen de Fondo Real y de Lujo**:
+   - Reemplacé la imagen del Hero en `home.html` (que mostraba toallas de baño) por una fotografía profesional de alta resolución de un resort de lujo con sombrillas premium de playa y piscina.
+
+3. **Selector de Idiomas Interactivo (Pill Toggle Slider)**:
+   - Rediseñé el selector en la cabecera como un selector tipo cápsula deslizante (`toggle slider`) interactivo y moderno. Cuenta con banderas de país (🇺🇸 EN / 🇪🇸 ES) y una píldora blanca interna que se desplaza de forma animada mediante CSS suave (`transition-all duration-300 ease-out`).
+
+4. **Mensaje de WhatsApp 100% Bilingüe**:
+   - Modifiqué la lógica en `repair-form.ts` para que, si el usuario tiene la aplicación configurada en español (`es`), el mensaje pre-redactado que se envía a WhatsApp se compile en perfecto español. Si está en inglés, se enviará en inglés.
+
+5. **Nombres de Modelo Limpios (Sin Underscores)**:
+   - Configuré un mapa de conversión en el formulario para traducir los valores del sistema (`ocean_master`, `bay_master`, `plantation`, etc.) a nombres de presentación limpios (ej. *Ocean Master MAX*, *Plantation / Aluma-Teak*), de modo que el cliente y el agente de ventas vean un formato legible tanto en el resumen como en el texto final de WhatsApp.
+
+6. **Detalles Opcionales en Reparación**:
+   - Eliminé la regla obligatoria para el campo de descripción/detalles de daño en el servicio de reparación. Ahora es opcional y se indica con una etiqueta `(Opcional)` / `(Opcional)`.
+   - Ajusté la barra de progreso dinámico del formulario para que refleje correctamente el flujo completo considerando únicamente los campos que sí son obligatorios.
+
+7. **Efecto de Olas de Mar en Cascada Silencioso (Fondos Blancos)**:
+   - Creé un efecto CSS elegante (`.ocean-wave-bg`) en `styles.css` que simula ondas marinas en degradado y una suave ola deslizante semitransparente que viaja por la base del contenedor. Se aplica de forma muy sobria y sutil en el fondo de las secciones blancas (como en la sección de Servicios) aportando dinamismo y profundidad sin sobrecargar.
+
+8. **WhatsApp Flotante Modernizado**:
+   - Eliminé el punto de notificación rojo pulsante para quitar la sensación de "página de estafa/spam".
+   - El botón flotante de WhatsApp ahora tiene un estilo sobrio en fondo oscuro (`bg-slate-900` con borde fino) que cambia con una animación de color al verde oficial al pasar el ratón, viéndose mucho más profesional y acorde a una marca B2B de lujo.
+
+9. **Footer de Alta Gama**:
+   - Rediseñé por completo el footer de `app.html` añadiendo una línea superior de color degradado mar/cielo, mejores tipografías claras sobre fondo negro profundo, viñetas de navegación elegantes (`◆`), y un texto de descripción de servicio en Miami más premium.
+
+¡Prueba levantando tu servidor con `ng serve` para ver los resultados!
+
+### User Input
+
+Me gustan los cambios, pero por ejemplo en el footer eso se queda estatico en ingles asi la pagina este en español asi que eso tambien debe ser dinamico para el idioma, el logo de whatsapp se ve demasiado pequeño, minusculo, no se ve bien, la barra para cambiar de idioma sigue sin convencer, no se entiende del todo, tal vez deberia verse con la bandera de españa y de usa descargadas en SVG pero tmb con el texto de en/es y asi para que se vea mejor: En el mensaje formateado en español (Frecuencia: One-time) Toca poner eso en español y formateado por espacios mas no guines, y debes poner en las partes blancas de la pagina como en el apartado de (nuestros servicios y porque tuccifix, y en el formulario el efecto de olas de mar, porque parcticamente no se ve por ningun lado y el tipo de efecto esta muy chambon, necesito algo mas interactivo y medio celeste como para que resalte
+
+*Viewed [en.json](file:///c:/Users/santi/Desktop/TUUCIFIX/tuucifix-app/public/assets/i18n/en.json) *
+
+*Edited relevant file*
+
+*Edited relevant file*

@@ -12,7 +12,11 @@
     "PHONE_ES": "+1 (786) 697-7035",
     "PHONE_EN": "+1 (305) 298-3125",
     "LOCATION": "Miami, FL",
-    "FOLLOW_US": "Síguenos"
+    "FOLLOW_US": "Síguenos",
+    "DESCRIPTION": "Excelencia autorizada. Ofreciendo restauración de grado marino premium, mantenimiento especializado y servicios de reparación de élite para estructuras de sombra TUUCI en el sur de la Florida.",
+    "SUB_LOCATION": "Sirviendo a Key Biscayne, Coral Gables, Coconut Grove y Miami Beach",
+    "PRIVACY": "Política de Privacidad",
+    "TERMS": "Términos de Servicio"
   },
   "HOME": {
     "HERO_TITLE": "Cuidado Experto para sus",
@@ -73,6 +77,7 @@
     "PART_BASE_DESC": "Inestable, agrietada o necesita reemplazo",
     "DAMAGE_DESC": "Detalles Adicionales",
     "DAMAGE_PLACEHOLDER": "Describe el problema con más detalle...",
+    "OPTIONAL": "Opcional",
     "PHOTO_REMINDER": "📸 ¡Ten fotos del daño listas para compartir en el chat de WhatsApp!",
     "SUBMIT": "Revisar Mi Solicitud",
     "WHATSAPP_REDIRECT": "Será redirigido a WhatsApp para completar su solicitud.",

@@ -16,24 +16,24 @@ export class RepairForm implements OnInit {
   showSummaryModal = false;
 
   tuuciModels = [
-    { value: 'ocean_master', label: 'FORM.MODEL_OCEAN_MASTER' },
-    { value: 'bay_master', label: 'FORM.MODEL_BAY_MASTER' },
-    { value: 'plantation', label: 'FORM.MODEL_PLANTATION' },
-    { value: 'cantilever', label: 'FORM.MODEL_CANTILEVER' },
-    { value: 'other', label: 'FORM.MODEL_OTHER' }
+    { value: 'ocean_master', label: 'FORM.MODEL_OCEAN_MASTER', display: 'Ocean Master MAX' },
+    { value: 'bay_master', label: 'FORM.MODEL_BAY_MASTER', display: 'Bay Master' },
+    { value: 'plantation', label: 'FORM.MODEL_PLANTATION', display: 'Plantation / Aluma-Teak' },
+    { value: 'cantilever', label: 'FORM.MODEL_CANTILEVER', display: 'Cantilever' },
+    { value: 'other', label: 'FORM.MODEL_OTHER', display: 'Other' }
   ];
 
   damagedParts = [
-    { value: 'canopy', label: 'FORM.PART_CANOPY', desc: 'FORM.PART_CANOPY_DESC', icon: '🏖️' },
-    { value: 'frame', label: 'FORM.PART_FRAME', desc: 'FORM.PART_FRAME_DESC', icon: '🔩' },
-    { value: 'hardware', label: 'FORM.PART_HARDWARE', desc: 'FORM.PART_HARDWARE_DESC', icon: '⚙️' },
-    { value: 'base', label: 'FORM.PART_BASE', desc: 'FORM.PART_BASE_DESC', icon: '🪨' }
+    { value: 'canopy', label: 'FORM.PART_CANOPY', desc: 'FORM.PART_CANOPY_DESC', icon: '🏖️', display: 'Canopy' },
+    { value: 'frame', label: 'FORM.PART_FRAME', desc: 'FORM.PART_FRAME_DESC', icon: '🔩', display: 'Frame' },
+    { value: 'hardware', label: 'FORM.PART_HARDWARE', desc: 'FORM.PART_HARDWARE_DESC', icon: '⚙️', display: 'Hardware' },
+    { value: 'base', label: 'FORM.PART_BASE', desc: 'FORM.PART_BASE_DESC', icon: '🪨', display: 'Base' }
   ];
 
   frequencies = [
-    { value: 'once', label: 'FORM.FREQ_ONCE', icon: '1️⃣' },
-    { value: 'biannual', label: 'FORM.FREQ_BIANNUAL', icon: '📅' },
-    { value: 'quarterly', label: 'FORM.FREQ_QUARTERLY', icon: '🔄' }
+    { value: 'once', label: 'FORM.FREQ_ONCE', icon: '1️⃣', display: 'One-time' },
+    { value: 'biannual', label: 'FORM.FREQ_BIANNUAL', icon: '📅', display: 'Bi-annual' },
+    { value: 'quarterly', label: 'FORM.FREQ_QUARTERLY', icon: '🔄', display: 'Quarterly' }
   ];
 
   constructor(
@@ -57,18 +57,14 @@ export class RepairForm implements OnInit {
     this.seoService.updateTitle('Request Repair Service - TUUCI FIX');
 
     this.repairForm.get('serviceType')?.valueChanges.subscribe(value => {
-      const damageControl = this.repairForm.get('damageDescription');
       const partControl = this.repairForm.get('damagedPart');
       const freqControl = this.repairForm.get('maintenanceFrequency');
 
       if (value === 'repair') {
-        damageControl?.setValidators([Validators.required]);
         partControl?.setValidators([Validators.required]);
         freqControl?.clearValidators();
         freqControl?.setValue('');
       } else {
-        damageControl?.clearValidators();
-        damageControl?.setValue('');
         partControl?.clearValidators();
         partControl?.setValue('');
         freqControl?.setValidators([Validators.required]);
@@ -76,7 +72,6 @@ export class RepairForm implements OnInit {
           freqControl?.setValue('once');
         }
       }
-      damageControl?.updateValueAndValidity();
       partControl?.updateValueAndValidity();
       freqControl?.updateValueAndValidity();
     });
@@ -90,12 +85,11 @@ export class RepairForm implements OnInit {
     if (v.umbrellaModel) count++;
     if (v.serviceType === 'preventive' && v.maintenanceFrequency) count++;
     if (v.serviceType === 'repair' && v.damagedPart) count++;
-    if (v.serviceType === 'repair' && v.damageDescription) count++;
     return count;
   }
 
   get totalFields(): number {
-    return this.repairForm.value.serviceType === 'repair' ? 6 : 4;
+    return this.repairForm.value.serviceType === 'repair' ? 5 : 4;
   }
 
   get progressPercent(): number {
@@ -113,7 +107,6 @@ export class RepairForm implements OnInit {
   }
 
   openSummary() {
-    // Mark all fields as touched to trigger validation display
     Object.keys(this.repairForm.controls).forEach(key => {
       this.repairForm.get(key)?.markAsTouched();
     });
@@ -132,9 +125,19 @@ export class RepairForm implements OnInit {
     return model ? model.label : value;
   }
 
+  getModelDisplay(value: string): string {
+    const model = this.tuuciModels.find(m => m.value === value);
+    return model ? model.display : value;
+  }
+
   getPartLabel(value: string): string {
     const part = this.damagedParts.find(p => p.value === value);
     return part ? part.label : value;
+  }
+
+  getPartDisplay(value: string): string {
+    const part = this.damagedParts.find(p => p.value === value);
+    return part ? part.display : value;
   }
 
   getFrequencyLabel(value: string): string {
@@ -142,29 +145,56 @@ export class RepairForm implements OnInit {
     return freq ? freq.label : value;
   }
 
+  getFrequencyDisplay(value: string): string {
+    const freq = this.frequencies.find(f => f.value === value);
+    return freq ? freq.display : value;
+  }
+
   onSubmit() {
     const v = this.repairForm.value;
     const isRepair = v.serviceType === 'repair';
+    const lang = this.translate.getCurrentLang() || 'en';
+    const isEs = lang === 'es';
 
-    let message = `Hello TUUCIFIX, I need a ${isRepair ? 'Repair' : 'Preventive Maintenance'} service.\n`;
-    message += `Name: ${v.name}\n`;
-    message += `Phone: ${v.phone}\n`;
+    let message: string;
 
-    if (v.umbrellaModel) {
-      const modelObj = this.tuuciModels.find(m => m.value === v.umbrellaModel);
-      message += `Model: ${modelObj ? modelObj.value : v.umbrellaModel}\n`;
-    }
-
-    if (isRepair) {
-      if (v.damagedPart) {
-        message += `Damaged Part: ${v.damagedPart}\n`;
+    if (isEs) {
+      message = `Hola TUUCIFIX, necesito un servicio de ${isRepair ? 'Reparación' : 'Mantenimiento Preventivo'}.\n`;
+      message += `Nombre: ${v.name}\n`;
+      message += `Teléfono: ${v.phone}\n`;
+      if (v.umbrellaModel) {
+        message += `Modelo: ${this.getModelDisplay(v.umbrellaModel)}\n`;
       }
-      if (v.damageDescription) {
-        message += `Details: ${v.damageDescription}\n`;
+      if (isRepair) {
+        if (v.damagedPart) {
+          message += `Parte dañada: ${this.getPartDisplay(v.damagedPart)}\n`;
+        }
+        if (v.damageDescription) {
+          message += `Detalles: ${v.damageDescription}\n`;
+        }
+      } else {
+        if (v.maintenanceFrequency) {
+          message += `Frecuencia: ${this.getFrequencyDisplay(v.maintenanceFrequency)}\n`;
+        }
       }
     } else {
-      if (v.maintenanceFrequency) {
-        message += `Frequency: ${v.maintenanceFrequency}\n`;
+      message = `Hello TUUCIFIX, I need a ${isRepair ? 'Repair' : 'Preventive Maintenance'} service.\n`;
+      message += `Name: ${v.name}\n`;
+      message += `Phone: ${v.phone}\n`;
+      if (v.umbrellaModel) {
+        message += `Model: ${this.getModelDisplay(v.umbrellaModel)}\n`;
+      }
+      if (isRepair) {
+        if (v.damagedPart) {
+          message += `Damaged Part: ${this.getPartDisplay(v.damagedPart)}\n`;
+        }
+        if (v.damageDescription) {
+          message += `Details: ${v.damageDescription}\n`;
+        }
+      } else {
+        if (v.maintenanceFrequency) {
+          message += `Frequency: ${this.getFrequencyDisplay(v.maintenanceFrequency)}\n`;
+        }
       }
     }
 

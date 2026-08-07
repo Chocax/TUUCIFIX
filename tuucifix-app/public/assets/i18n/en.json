@@ -12,7 +12,11 @@
     "PHONE_ES": "+1 (786) 697-7035",
     "PHONE_EN": "+1 (305) 298-3125",
     "LOCATION": "Miami, FL",
-    "FOLLOW_US": "Follow Us"
+    "FOLLOW_US": "Follow Us",
+    "DESCRIPTION": "Authorized excellence. Providing premium marine-grade restoration, specialized maintenance, and elite repair services for TUUCI shade structures across South Florida.",
+    "SUB_LOCATION": "Serving Key Biscayne, Coral Gables, Coconut Grove, & Miami Beach",
+    "PRIVACY": "Privacy Policy",
+    "TERMS": "Terms of Service"
   },
   "HOME": {
     "HERO_TITLE": "Expert Care for Your",
@@ -73,6 +77,7 @@
     "PART_BASE_DESC": "Unstable, cracked or needs replacement",
     "DAMAGE_DESC": "Additional Details",
     "DAMAGE_PLACEHOLDER": "Describe the issue in more detail...",
+    "OPTIONAL": "Optional",
     "PHOTO_REMINDER": "📸 Have photos of the damage ready to share in the WhatsApp chat!",
     "SUBMIT": "Review My Request",
     "WHATSAPP_REDIRECT": "You will be redirected to WhatsApp to complete your request.",

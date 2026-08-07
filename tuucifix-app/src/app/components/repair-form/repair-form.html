@@ -1,4 +1,4 @@
-<div class="min-h-[80vh] bg-gradient-to-br from-slate-50 via-white to-sky-50 py-16 px-6 relative">
+<div class="min-h-[80vh] bg-gradient-to-br from-slate-50 via-white to-sky-50 py-16 px-6 relative ocean-bg">
   <div class="max-w-3xl mx-auto">
 
     <!-- Header -->
@@ -163,21 +163,16 @@
                 </label>
               </div>
 
-              <!-- Damage Description -->
+              <!-- Damage Description (Optional) -->
               <div class="mt-4 animate-slide-up">
-                <label class="block text-sm font-medium text-slate-700 mb-2">{{ 'FORM.DAMAGE_DESC' | translate }}</label>
+                <label class="block text-sm font-medium text-slate-700 mb-2">{{ 'FORM.DAMAGE_DESC' | translate }} <span class="text-slate-400 font-normal">({{ 'FORM.OPTIONAL' | translate }})</span></label>
                 <textarea formControlName="damageDescription" rows="3"
                   class="w-full px-4 py-3 rounded-xl border-2 outline-none transition-all duration-300 resize-none"
                   [ngClass]="{
-                    'border-red-300 focus:border-red-500': isFieldInvalid('damageDescription'),
                     'border-green-300 focus:border-green-500': isFieldValid('damageDescription'),
-                    'border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200': !isFieldInvalid('damageDescription') && !isFieldValid('damageDescription')
+                    'border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-200': !isFieldValid('damageDescription')
                   }"
                   [placeholder]="'FORM.DAMAGE_PLACEHOLDER' | translate"></textarea>
-                <div *ngIf="isFieldInvalid('damageDescription')" class="text-red-500 text-xs mt-1.5 flex items-center gap-1 animate-slide-up">
-                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
-                  {{ 'FORM.REQUIRED_FIELD' | translate }}
-                </div>
               </div>
 
               <!-- Photo Reminder -->
