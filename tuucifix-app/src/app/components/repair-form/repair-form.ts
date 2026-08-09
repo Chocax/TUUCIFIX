@@ -174,7 +174,7 @@ export class RepairForm implements OnInit {
         }
       } else {
         if (v.maintenanceFrequency) {
-          message += `Frecuencia: ${this.getFrequencyDisplay(v.maintenanceFrequency)}\n`;
+          message += `Frecuencia: ${this.translate.instant(this.getFrequencyLabel(v.maintenanceFrequency))}\n`;
         }
       }
     } else {
@@ -193,7 +193,7 @@ export class RepairForm implements OnInit {
         }
       } else {
         if (v.maintenanceFrequency) {
-          message += `Frequency: ${this.getFrequencyDisplay(v.maintenanceFrequency)}\n`;
+          message += `Frequency: ${this.translate.instant(this.getFrequencyLabel(v.maintenanceFrequency))}\n`;
         }
       }
     }

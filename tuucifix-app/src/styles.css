@@ -34,66 +34,270 @@ html {
   background: #94a3b8;
 }
 
+/* ── Ocean palette (used by the SVG gradient stops g1–g7 defined in app.html) ── */
+:root {
+  --c-1: #f5fbfd;
+  --c-2: #e0f3fa;
+  --c-3: #c3e7f4;
+  --c-4: #9ed7ec;
+  --c-5: #78c3e0;
+  --c-6: #55abd0;
+  --c-7: #3a8fbb;
+  --c-8: #276f9c;
+  --c-9: #1a537c;
+  --c-10: #103c5e;
+  --c-deep: #0a2740;
+}
+
 /* ── Subtle Ocean Wave Background ── */
-.ocean-bg {
-  position: relative;
+.tuucifix-ocean-wrapper {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
-}
-.ocean-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(186, 230, 253, 0.04) 20%,
-    rgba(125, 211, 252, 0.06) 40%,
-    rgba(186, 230, 253, 0.04) 60%,
-    rgba(125, 211, 252, 0.03) 80%,
-    transparent 100%
-  );
-  animation: oceanDrift 20s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-.ocean-bg::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -30%;
-  width: 160%;
-  height: 100%;
-  background: linear-gradient(
-    170deg,
-    transparent 0%,
-    rgba(147, 197, 253, 0.03) 30%,
-    rgba(186, 230, 253, 0.05) 50%,
-    rgba(147, 197, 253, 0.03) 70%,
-    transparent 100%
-  );
-  animation: oceanDrift 25s ease-in-out infinite reverse;
   pointer-events: none;
   z-index: 0;
 }
 
-/* ── Animations ── */
-@keyframes oceanDrift {
-  0%, 100% {
-    transform: translateX(0) translateY(0);
-  }
-  25% {
-    transform: translateX(3%) translateY(-1%);
-  }
-  50% {
-    transform: translateX(-2%) translateY(1%);
-  }
-  75% {
-    transform: translateX(1%) translateY(-0.5%);
+.tuucifix-ocean {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.tuucifix-ocean .tuucifix-waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 58%;
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.tuucifix-ocean .tuucifix-waves svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 220%;
+  height: 100%;
+}
+
+.tuucifix-ocean .layer-far    { filter: blur(1.8px); }
+.tuucifix-ocean .layer-back   { filter: blur(1.1px); }
+.tuucifix-ocean .layer-mid    { filter: blur(0.5px); }
+.tuucifix-ocean .layer-near   { filter: blur(0.15px); }
+.tuucifix-ocean .layer-front  { filter: none; }
+
+.tuucifix-ocean .l1 { opacity: 0.40; animation: drift-1 42s linear infinite, bob-1 10s ease-in-out infinite; }
+.tuucifix-ocean .l2 { opacity: 0.48; animation: drift-2 36s linear infinite, bob-2 9s ease-in-out infinite; }
+.tuucifix-ocean .l3 { opacity: 0.56; animation: drift-3 30s linear infinite, bob-3 8s ease-in-out infinite; }
+.tuucifix-ocean .l4 { opacity: 0.64; animation: drift-4 24s linear infinite, bob-4 7s ease-in-out infinite; }
+.tuucifix-ocean .l5 { opacity: 0.74; animation: drift-5 19s linear infinite, bob-5 6.2s ease-in-out infinite; }
+.tuucifix-ocean .l6 { opacity: 0.86; animation: drift-6 14s linear infinite, bob-6 5.4s ease-in-out infinite; }
+.tuucifix-ocean .l7 { opacity: 1;    animation: drift-7 10s linear infinite, bob-7 4.6s ease-in-out infinite; }
+
+.tuucifix-ocean .tuucifix-haze,
+.tuucifix-ocean .tuucifix-vignette,
+.tuucifix-ocean .tuucifix-grain,
+.tuucifix-ocean .tuucifix-caustics,
+.tuucifix-ocean .tuucifix-shimmer,
+.tuucifix-ocean .tuucifix-sparkle,
+.tuucifix-ocean .tuucifix-foam-dot,
+.tuucifix-ocean .tuucifix-bird {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tuucifix-ocean .tuucifix-haze {
+  top: 32%;
+  left: 0;
+  right: 0;
+  height: 14%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0));
+  filter: blur(6px);
+  opacity: 0.36;
+  z-index: 6;
+}
+
+.tuucifix-ocean .tuucifix-caustics {
+  left: -10%;
+  bottom: 0;
+  width: 120%;
+  height: 55%;
+  z-index: 8;
+  mix-blend-mode: screen;
+  opacity: 0.35;
+  animation: caustics-shift 22s ease-in-out infinite;
+}
+
+.tuucifix-ocean .tuucifix-caustics .caustics {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tuucifix-ocean .tuucifix-shimmer {
+  bottom: 8%;
+  left: -25%;
+  width: 75%;
+  height: 42%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 72%);
+  animation: shimmer-drift 18s ease-in-out infinite;
+  z-index: 14;
+}
+
+.tuucifix-ocean .tuucifix-sparkle {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 4px 1px rgba(255,255,255,0.8);
+  opacity: 0;
+  animation: twinkle 3.4s ease-in-out infinite;
+  z-index: 13;
+}
+
+.tuucifix-ocean .tuucifix-foam-dot {
+  bottom: 30%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0;
+  animation: dot-float 11s ease-in infinite;
+  z-index: 13;
+}
+
+.tuucifix-ocean .tuucifix-bird {
+  top: 14%;
+  width: 22px;
+  height: 10px;
+  opacity: 0.35;
+  animation: fly 38s linear infinite;
+}
+
+.tuucifix-ocean .tuucifix-vignette {
+  background: radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0) 45%, rgba(10,39,64,0.06) 100%);
+  z-index: 25;
+}
+
+.tuucifix-ocean .tuucifix-grain {
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+}
+
+.tuucifix-ocean .tuucifix-grain rect {
+  width: 100%;
+  height: 100%;
+}
+
+.tuucifix-ocean .foam-line {
+  stroke: #ffffff;
+  stroke-width: 2.4;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 1 13;
+  opacity: 0.85;
+  animation: foam-move 4.5s linear infinite;
+}
+
+.tuucifix-ocean .foam-line-soft {
+  stroke: #ffffff;
+  stroke-width: 5;
+  fill: none;
+  stroke-linecap: round;
+  opacity: 0.18;
+  filter: blur(2px);
+}
+
+@keyframes foam-move {
+  to { stroke-dashoffset: -110; }
+}
+
+@keyframes caustics-shift {
+  0%   { transform: translate(0,0) scale(1); }
+  50%  { transform: translate(-3%, 1.5%) scale(1.05); }
+  100% { transform: translate(0,0) scale(1); }
+}
+
+@keyframes shimmer-drift {
+  0%   { transform: translate(0, 0);      opacity: 0.3; }
+  50%  { transform: translate(65vw, -4%); opacity: 0.65; }
+  100% { transform: translate(0, 0);      opacity: 0.3; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50%      { opacity: 0.9; transform: scale(1.2); }
+}
+
+@keyframes dot-float {
+  0%   { opacity: 0; transform: translateY(0) scale(0.6); }
+  10%  { opacity: 0.55; }
+  80%  { opacity: 0.25; }
+  100% { opacity: 0; transform: translateY(-42px) scale(1); }
+}
+
+@keyframes fly {
+  from { transform: translateX(-10vw) translateY(0); }
+  to   { transform: translateX(110vw) translateY(-14px); }
+}
+
+@keyframes drift-1 { from { transform: translateX(0); }    to { transform: translateX(-45.45%); } }
+@keyframes drift-2 { from { transform: translateX(-1%); }  to { transform: translateX(-46.45%); } }
+@keyframes drift-3 { from { transform: translateX(-2%); }  to { transform: translateX(-47.45%); } }
+@keyframes drift-4 { from { transform: translateX(-1.5%);} to { transform: translateX(-46.95%); } }
+@keyframes drift-5 { from { transform: translateX(-3%); }  to { transform: translateX(-48.45%); } }
+@keyframes drift-6 { from { transform: translateX(-1%); }  to { transform: translateX(-46.45%); } }
+@keyframes drift-7 { from { transform: translateX(0); }    to { transform: translateX(-45.45%); } }
+
+@keyframes bob-1 { 0%,100% { margin-bottom: 0; } 50% { margin-bottom: 4px; } }
+@keyframes bob-2 { 0%,100% { margin-bottom: 0; } 50% { margin-bottom: 5px; } }
+@keyframes bob-3 { 0%,100% { margin-bottom: 0; } 50% { margin-bottom: 6px; } }
+@keyframes bob-4 { 0%,100% { margin-bottom: 0; } 50% { margin-bottom: 5px; } }
+@keyframes bob-5 { 0%,100% { margin-bottom: 0; } 50% { margin-bottom: 7px; } }
+@keyframes bob-6 { 0%,100% { margin-bottom: 0; } 50% { margin-bottom: 4px; } }
+@keyframes bob-7 { 0%,100% { margin-bottom: 0; } 50% { margin-bottom: 6px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .tuucifix-ocean .l1,
+  .tuucifix-ocean .l2,
+  .tuucifix-ocean .l3,
+  .tuucifix-ocean .l4,
+  .tuucifix-ocean .l5,
+  .tuucifix-ocean .l6,
+  .tuucifix-ocean .l7,
+  .tuucifix-ocean .tuucifix-shimmer,
+  .tuucifix-ocean .tuucifix-caustics,
+  .tuucifix-ocean .tuucifix-haze,
+  .tuucifix-ocean .tuucifix-sparkle,
+  .tuucifix-ocean .tuucifix-foam-dot,
+  .tuucifix-ocean .tuucifix-bird {
+    animation: none !important;
   }
 }
+
+@media (max-width: 768px) {
+  .tuucifix-ocean .l1,
+  .tuucifix-ocean .l2,
+  .tuucifix-ocean .l3 {
+    display: none;
+  }
+  .tuucifix-ocean .tuucifix-bird {
+    display: none;
+  }
+  .tuucifix-ocean .tuucifix-haze,
+  .tuucifix-ocean .tuucifix-caustics,
+  .tuucifix-ocean .tuucifix-sparkle {
+    opacity: 0.24;
+  }
+}
+
+.services-ocean .tuucifix-ocean { opacity: 0.92; }
+.why-ocean .tuucifix-ocean { opacity: 0.90; }
+.form-ocean .tuucifix-ocean { opacity: 0.88; }
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -171,44 +375,3 @@ html {
   animation: float 3s ease-in-out infinite;
 }
 
-/* ── Subtle Ocean Wave/Cascade Background for premium sections ── */
-.ocean-wave-bg {
-  position: relative;
-  overflow: hidden;
-}
-
-.ocean-wave-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(224, 242, 254, 0.18) 0%, rgba(255, 255, 255, 0) 50%, rgba(224, 242, 254, 0.18) 100%);
-  background-size: 200% 200%;
-  animation: waveMotion 15s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.ocean-wave-bg::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23e0f2fe' fill-opacity='0.25' d='M0,192L48,181.3C96,171,192,149,288,160C384,171,480,213,576,218.7C672,224,768,192,864,165.3C960,139,1056,117,1152,122.7C1248,128,1344,160,1392,176L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") bottom repeat-x;
-  background-size: 1440px 80px;
-  animation: waveSlide 25s linear infinite;
-  pointer-events: none;
-  z-index: 1;
-}
-
-@keyframes waveMotion {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes waveSlide {
-  0% { background-position-x: 0; }
-  100% { background-position-x: 1440px; }
-}
