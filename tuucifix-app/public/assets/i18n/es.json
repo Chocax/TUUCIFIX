@@ -18,9 +18,23 @@
     "PRIVACY": "Política de Privacidad",
     "TERMS": "Términos de Servicio"
   },
+  "LEGAL": {
+    "CLOSE": "Cerrar",
+    "PRIVACY_TITLE": "Política de Privacidad",
+    "PRIVACY_UPDATED": "Última actualización: 2026",
+    "PRIVACY_P1": "TUUCIFIX no opera una base de datos ni un servidor propio para este sitio web. El formulario de contacto solo recopila la información que tú decides ingresar — tu nombre, teléfono, modelo de sombrilla y detalles del servicio — para armar un mensaje en tu nombre.",
+    "PRIVACY_P2": "Ese mensaje se envía a través de WhatsApp, que se abre directamente en tu propio dispositivo. TUUCIFIX no almacena, vende ni comparte esta información más allá de lo necesario para responder tu solicitud y prestarte el servicio.",
+    "PRIVACY_P3": "No usamos cookies de rastreo, scripts de analítica ni publicidad de terceros en este sitio. Si tienes preguntas sobre el uso de tu información, contáctanos directamente por teléfono o WhatsApp.",
+    "TERMS_TITLE": "Términos de Servicio",
+    "TERMS_UPDATED": "Última actualización: 2026",
+    "TERMS_P1": "Al usar este sitio web, aceptas usarlo únicamente para hacer consultas legítimas sobre los servicios de mantenimiento y reparación de sombrillas TUUCI que ofrece TUUCIFIX en el área de Miami.",
+    "TERMS_P2": "Las solicitudes de servicio enviadas desde este sitio no quedan confirmadas hasta que se conversan con nuestro equipo por WhatsApp. El precio, la programación y la disponibilidad siempre se confirman directamente contigo antes de iniciar cualquier trabajo.",
+    "TERMS_P3": "TUUCIFIX puede actualizar estos términos ocasionalmente. Seguir usando el sitio después de un cambio significa que aceptas los términos actualizados."
+  },
   "HOME": {
     "HERO_TITLE": "Cuidado Experto para sus",
     "HERO_HIGHLIGHT": "Sombrillas de Lujo",
+    "HERO_BADGE": "El Servicio TUUCI #1 de Miami",
     "HERO_SUBTITLE": "Proteja su inversión con los servicios de reparación y mantenimiento premium de TUUCIFIX en Miami. Servicio estilo 'White Glove' a su medida.",
     "CTA_PRIMARY": "Solicitar un Servicio",
     "CTA_SECONDARY": "Explorar Servicios",
@@ -95,6 +109,7 @@
   },
   "WHATSAPP": {
     "TOOLTIP": "¡Chatea con nosotros por WhatsApp!",
+    "ARIA_LABEL": "Contáctanos por WhatsApp",
     "BADGE": "1"
   }
 }

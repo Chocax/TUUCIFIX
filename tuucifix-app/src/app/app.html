@@ -42,11 +42,11 @@
 
   <!-- Header -->
   <header class="relative z-10 bg-white/90 backdrop-blur-lg border-b border-slate-200/50 shadow-sm sticky top-0">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="text-2xl font-bold tracking-tight text-slate-800 uppercase">
+    <div class="container mx-auto px-6 py-2.5 flex justify-between items-center">
+      <div class="text-2xl font-bold tracking-tight text-slate-800 uppercase ml-2 md:ml-8">
         <a routerLink="/" class="hover:opacity-80 transition-opacity duration-300 flex items-center">
           <img src="/assets/logo-header.png" alt="TUUCIFIX"
-            class="h-14 w-auto"
+            class="h-28 w-auto"
             (error)="$event.target.style.display='none'">
         </a>
       </div>
@@ -95,7 +95,7 @@
           <h4 class="text-3xl md:text-4xl font-bold text-white tracking-wider uppercase flex items-center gap-4">
             TUUCI<span class="font-light text-sky-400">FIX</span>
             <img src="/assets/logo-footer.png" alt="TUUCIFIX logo"
-              class="h-14 w-auto"
+              class="h-36 w-auto"
               (error)="$event.target.style.display='none'">
           </h4>
           <p class="text-sm text-slate-400 leading-relaxed max-w-sm font-light">
@@ -136,7 +136,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25s-7.5-4.108-7.5-11.25a7.5 7.5 0 1115 0z"/>
               </svg>
-              <span>{{ 'FOOTER.LOCATION' | translate }}<br><span class="text-xs text-slate-500">Serving Key Biscayne, Coral Gables, Coconut Grove, & Miami Beach</span></span>
+              <span>{{ 'FOOTER.LOCATION' | translate }}<br><span class="text-xs text-slate-500">{{ 'FOOTER.SUB_LOCATION' | translate }}</span></span>
             </li>
             <li class="flex items-center gap-3 text-sm text-slate-400 font-light">
               <svg class="w-5 h-5 text-sky-400/80 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">

@@ -18,9 +18,23 @@
     "PRIVACY": "Privacy Policy",
     "TERMS": "Terms of Service"
   },
+  "LEGAL": {
+    "CLOSE": "Close",
+    "PRIVACY_TITLE": "Privacy Policy",
+    "PRIVACY_UPDATED": "Last updated: 2026",
+    "PRIVACY_P1": "TUUCIFIX does not run its own database or backend server for this website. The contact form only collects the information you choose to enter — your name, phone number, umbrella model, and service details — to build a message on your behalf.",
+    "PRIVACY_P2": "That message is sent through WhatsApp, opened directly on your own device. TUUCIFIX does not store, sell, or share this information beyond what is needed to respond to your request and provide the service you asked for.",
+    "PRIVACY_P3": "We do not use tracking cookies, analytics scripts, or third-party advertising on this site. If you have any questions about how your information is used, contact us directly by phone or WhatsApp.",
+    "TERMS_TITLE": "Terms of Service",
+    "TERMS_UPDATED": "Last updated: 2026",
+    "TERMS_P1": "By using this website, you agree to use it only to make legitimate inquiries about TUUCIFIX's umbrella maintenance and repair services in the Miami area.",
+    "TERMS_P2": "Service requests submitted through this site are not final until confirmed in conversation with our team via WhatsApp. Pricing, scheduling, and availability are always confirmed with you directly before any work begins.",
+    "TERMS_P3": "TUUCIFIX may update these terms from time to time. Continued use of the site after changes are posted means you accept the updated terms."
+  },
   "HOME": {
     "HERO_TITLE": "Expert Care for Your",
     "HERO_HIGHLIGHT": "Luxury Umbrellas",
+    "HERO_BADGE": "Miami's #1 TUUCI Service",
     "HERO_SUBTITLE": "Protect your investment with TUUCIFIX's premium maintenance and repair services in Miami. White-glove service tailored for your needs.",
     "CTA_PRIMARY": "Request a Service",
     "CTA_SECONDARY": "Explore Services",
@@ -95,6 +109,7 @@
   },
   "WHATSAPP": {
     "TOOLTIP": "Chat with us on WhatsApp!",
+    "ARIA_LABEL": "Contact us on WhatsApp",
     "BADGE": "1"
   }
 }
