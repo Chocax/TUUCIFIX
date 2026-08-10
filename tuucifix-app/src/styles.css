@@ -69,9 +69,37 @@ html {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 58%;
-  min-height: 280px;
+  height: 76%;
+  min-height: 320px;
   overflow: hidden;
+}
+
+/* El formulario tiene más alto disponible: dejamos que el mar ocupe casi
+   toda la sección para que se sientan más capas de profundidad. */
+.form-ocean .tuucifix-waves {
+  height: 92%;
+  min-height: 420px;
+}
+
+/* Cielo tipo atardecer, muy sutil y delicado, detrás de la escena
+   unificada de Services + Why — se asoma arriba de las olas sin robarle
+   protagonismo al blanco de fondo. */
+.home-sky {
+  background: linear-gradient(
+    180deg,
+    #fdefe3 0%,
+    #fdf1ec 10%,
+    #fdf4f2 18%,
+    #f6f9fb 30%,
+    #ffffff 46%
+  );
+}
+
+/* Services + Why comparten UNA sola escena de mar continua (home-ocean),
+   en vez de dos instancias apiladas por separado. */
+.home-ocean .tuucifix-waves {
+  height: 60%;
+  min-height: 460px;
 }
 
 .tuucifix-ocean .tuucifix-waves svg {
@@ -88,13 +116,13 @@ html {
 .tuucifix-ocean .layer-near   { filter: blur(0.15px); }
 .tuucifix-ocean .layer-front  { filter: none; }
 
-.tuucifix-ocean .l1 { opacity: 0.40; animation: drift-1 42s linear infinite, bob-1 10s ease-in-out infinite; }
-.tuucifix-ocean .l2 { opacity: 0.48; animation: drift-2 36s linear infinite, bob-2 9s ease-in-out infinite; }
-.tuucifix-ocean .l3 { opacity: 0.56; animation: drift-3 30s linear infinite, bob-3 8s ease-in-out infinite; }
-.tuucifix-ocean .l4 { opacity: 0.64; animation: drift-4 24s linear infinite, bob-4 7s ease-in-out infinite; }
-.tuucifix-ocean .l5 { opacity: 0.74; animation: drift-5 19s linear infinite, bob-5 6.2s ease-in-out infinite; }
-.tuucifix-ocean .l6 { opacity: 0.86; animation: drift-6 14s linear infinite, bob-6 5.4s ease-in-out infinite; }
-.tuucifix-ocean .l7 { opacity: 1;    animation: drift-7 10s linear infinite, bob-7 4.6s ease-in-out infinite; }
+.tuucifix-ocean .l1 { opacity: 0.40; animation: drift-1 70s linear infinite, bob-1 16s ease-in-out infinite; }
+.tuucifix-ocean .l2 { opacity: 0.48; animation: drift-2 60s linear infinite, bob-2 14.4s ease-in-out infinite; }
+.tuucifix-ocean .l3 { opacity: 0.56; animation: drift-3 50s linear infinite, bob-3 12.8s ease-in-out infinite; }
+.tuucifix-ocean .l4 { opacity: 0.64; animation: drift-4 40s linear infinite, bob-4 11.2s ease-in-out infinite; }
+.tuucifix-ocean .l5 { opacity: 0.74; animation: drift-5 32s linear infinite, bob-5 10s ease-in-out infinite; }
+.tuucifix-ocean .l6 { opacity: 0.86; animation: drift-6 24s linear infinite, bob-6 8.6s ease-in-out infinite; }
+.tuucifix-ocean .l7 { opacity: 1;    animation: drift-7 17s linear infinite, bob-7 7.4s ease-in-out infinite; }
 
 .tuucifix-ocean .tuucifix-haze,
 .tuucifix-ocean .tuucifix-vignette,
@@ -128,7 +156,7 @@ html {
   z-index: 8;
   mix-blend-mode: screen;
   opacity: 0.35;
-  animation: caustics-shift 22s ease-in-out infinite;
+  animation: caustics-shift 34s ease-in-out infinite;
 }
 
 .tuucifix-ocean .tuucifix-caustics .caustics {
@@ -144,7 +172,7 @@ html {
   width: 75%;
   height: 42%;
   background: radial-gradient(ellipse at center, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0) 72%);
-  animation: shimmer-drift 18s ease-in-out infinite;
+  animation: shimmer-drift 28s ease-in-out infinite;
   z-index: 14;
 }
 
@@ -155,7 +183,7 @@ html {
   background: #ffffff;
   box-shadow: 0 0 4px 1px rgba(255,255,255,0.8);
   opacity: 0;
-  animation: twinkle 3.4s ease-in-out infinite;
+  animation: twinkle 5s ease-in-out infinite;
   z-index: 13;
 }
 
@@ -166,16 +194,16 @@ html {
   border-radius: 50%;
   background: #ffffff;
   opacity: 0;
-  animation: dot-float 11s ease-in infinite;
+  animation: dot-float 16s ease-in infinite;
   z-index: 13;
 }
 
 .tuucifix-ocean .tuucifix-bird {
   top: 14%;
-  width: 22px;
-  height: 10px;
-  opacity: 0.35;
-  animation: fly 38s linear infinite;
+  width: 34px;
+  height: 15px;
+  opacity: 0.55;
+  animation: fly 55s linear infinite;
 }
 
 .tuucifix-ocean .tuucifix-vignette {
@@ -194,13 +222,9 @@ html {
 }
 
 .tuucifix-ocean .foam-line {
-  stroke: #ffffff;
-  stroke-width: 2.4;
-  fill: none;
-  stroke-linecap: round;
-  stroke-dasharray: 1 13;
-  opacity: 0.85;
-  animation: foam-move 4.5s linear infinite;
+  /* Puntos de espuma desactivados a pedido: se veían como una fila de
+     "punticos" en vez de espuma. Se conserva foam-line-soft (difuminada). */
+  display: none;
 }
 
 .tuucifix-ocean .foam-line-soft {
@@ -295,8 +319,16 @@ html {
   }
 }
 
-.services-ocean .tuucifix-ocean { opacity: 0.92; }
-.why-ocean .tuucifix-ocean { opacity: 0.90; }
+/* Placa blanca translúcida detrás de los títulos de sección, para que
+   destaquen con claridad sobre el mar animado. */
+.ocean-title-badge {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(15, 41, 66, 0.06);
+}
+
+.home-ocean .tuucifix-ocean { opacity: 0.92; }
 .form-ocean .tuucifix-ocean { opacity: 0.88; }
 
 @keyframes fadeIn {

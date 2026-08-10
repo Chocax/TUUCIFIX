@@ -12,6 +12,8 @@ import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 })
 export class App implements OnInit {
   currentLang = 'en';
+  showPrivacyModal = false;
+  showTermsModal = false;
 
   constructor(private translate: TranslateService) {}
 
@@ -22,5 +24,21 @@ export class App implements OnInit {
   changeLanguage(lang: string) {
     this.currentLang = lang;
     this.translate.use(lang);
+  }
+
+  openPrivacy() {
+    this.showPrivacyModal = true;
+  }
+
+  closePrivacy() {
+    this.showPrivacyModal = false;
+  }
+
+  openTerms() {
+    this.showTermsModal = true;
+  }
+
+  closeTerms() {
+    this.showTermsModal = false;
   }
 }

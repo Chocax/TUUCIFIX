@@ -44,8 +44,10 @@
   <header class="relative z-10 bg-white/90 backdrop-blur-lg border-b border-slate-200/50 shadow-sm sticky top-0">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <div class="text-2xl font-bold tracking-tight text-slate-800 uppercase">
-        <a routerLink="/" class="hover:text-sky-700 transition-colors duration-300 flex items-center gap-1">
-          TUUCI<span class="font-light text-sky-600">FIX</span>
+        <a routerLink="/" class="hover:opacity-80 transition-opacity duration-300 flex items-center">
+          <img src="/assets/logo-header.png" alt="TUUCIFIX"
+            class="h-14 w-auto"
+            (error)="$event.target.style.display='none'">
         </a>
       </div>
       
@@ -82,7 +84,7 @@
   </main>
 
   <!-- Premium Luxury Footer -->
-  <footer class="relative z-10 bg-slate-950 text-slate-400 pt-20 pb-10 border-t border-slate-900">
+  <footer class="relative z-0 bg-slate-950 text-slate-400 pt-20 pb-10 border-t border-slate-900">
     <!-- Top thin gold/blue line -->
     <div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-sky-500/50 via-teal-400/50 to-sky-500/50"></div>
     
@@ -90,8 +92,11 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
         <!-- Brand / Logo Area -->
         <div class="md:col-span-5 space-y-5">
-          <h4 class="text-2xl font-bold text-white tracking-wider uppercase">
+          <h4 class="text-3xl md:text-4xl font-bold text-white tracking-wider uppercase flex items-center gap-4">
             TUUCI<span class="font-light text-sky-400">FIX</span>
+            <img src="/assets/logo-footer.png" alt="TUUCIFIX logo"
+              class="h-14 w-auto"
+              (error)="$event.target.style.display='none'">
           </h4>
           <p class="text-sm text-slate-400 leading-relaxed max-w-sm font-light">
             {{ 'FOOTER.DESCRIPTION' | translate }}
@@ -150,9 +155,9 @@
       <div class="border-t border-slate-900/60 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
         <p class="text-xs text-slate-600 font-light">&copy; 2026 TUUCIFIX Miami. {{ 'FOOTER.ALL_RIGHTS' | translate }}</p>
         <div class="flex items-center gap-4 text-xs text-slate-600">
-          <span class="hover:text-slate-400 transition-colors duration-300 cursor-pointer font-light">{{ 'FOOTER.PRIVACY' | translate }}</span>
+          <button type="button" (click)="openPrivacy()" class="bg-transparent border-0 p-0 cursor-pointer hover:text-slate-400 transition-colors duration-300 font-light">{{ 'FOOTER.PRIVACY' | translate }}</button>
           <span>•</span>
-          <span class="hover:text-slate-400 transition-colors duration-300 cursor-pointer font-light">{{ 'FOOTER.TERMS' | translate }}</span>
+          <button type="button" (click)="openTerms()" class="bg-transparent border-0 p-0 cursor-pointer hover:text-slate-400 transition-colors duration-300 font-light">{{ 'FOOTER.TERMS' | translate }}</button>
         </div>
       </div>
     </div>
@@ -160,4 +165,52 @@
 
   <!-- Floating Elements -->
   <app-floating-whatsapp class="relative z-50"></app-floating-whatsapp>
+
+  <!-- ─── Privacy Policy Modal ─── -->
+  <div *ngIf="showPrivacyModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in">
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" (click)="closePrivacy()"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-scale-in">
+      <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white px-6 py-5 flex items-center justify-between">
+        <h3 class="text-xl font-bold">{{ 'LEGAL.PRIVACY_TITLE' | translate }}</h3>
+        <button type="button" (click)="closePrivacy()" class="bg-transparent border-0 p-1 cursor-pointer text-slate-300 hover:text-white transition-colors" aria-label="Close">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="px-6 py-6 space-y-4 max-h-[65vh] overflow-y-auto">
+        <p class="text-xs text-slate-400 uppercase tracking-wider">{{ 'LEGAL.PRIVACY_UPDATED' | translate }}</p>
+        <p class="text-sm text-slate-600 leading-relaxed">{{ 'LEGAL.PRIVACY_P1' | translate }}</p>
+        <p class="text-sm text-slate-600 leading-relaxed">{{ 'LEGAL.PRIVACY_P2' | translate }}</p>
+        <p class="text-sm text-slate-600 leading-relaxed">{{ 'LEGAL.PRIVACY_P3' | translate }}</p>
+      </div>
+      <div class="px-6 py-4 bg-slate-50 border-t border-slate-100">
+        <button type="button" (click)="closePrivacy()" class="w-full bg-slate-900 hover:bg-slate-700 text-white font-medium py-2.5 px-6 rounded-xl transition-all duration-300">
+          {{ 'LEGAL.CLOSE' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Terms of Service Modal ─── -->
+  <div *ngIf="showTermsModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 animate-fade-in">
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" (click)="closeTerms()"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-scale-in">
+      <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white px-6 py-5 flex items-center justify-between">
+        <h3 class="text-xl font-bold">{{ 'LEGAL.TERMS_TITLE' | translate }}</h3>
+        <button type="button" (click)="closeTerms()" class="bg-transparent border-0 p-1 cursor-pointer text-slate-300 hover:text-white transition-colors" aria-label="Close">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="px-6 py-6 space-y-4 max-h-[65vh] overflow-y-auto">
+        <p class="text-xs text-slate-400 uppercase tracking-wider">{{ 'LEGAL.TERMS_UPDATED' | translate }}</p>
+        <p class="text-sm text-slate-600 leading-relaxed">{{ 'LEGAL.TERMS_P1' | translate }}</p>
+        <p class="text-sm text-slate-600 leading-relaxed">{{ 'LEGAL.TERMS_P2' | translate }}</p>
+        <p class="text-sm text-slate-600 leading-relaxed">{{ 'LEGAL.TERMS_P3' | translate }}</p>
+      </div>
+      <div class="px-6 py-4 bg-slate-50 border-t border-slate-100">
+        <button type="button" (click)="closeTerms()" class="w-full bg-slate-900 hover:bg-slate-700 text-white font-medium py-2.5 px-6 rounded-xl transition-all duration-300">
+          {{ 'LEGAL.CLOSE' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
