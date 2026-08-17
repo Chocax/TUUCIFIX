@@ -95,6 +95,10 @@
     "PHOTO_REMINDER": "📸 ¡Ten fotos del daño listas para compartir en el chat de WhatsApp!",
     "SUBMIT": "Revisar Mi Solicitud",
     "WHATSAPP_REDIRECT": "Será redirigido a WhatsApp para completar su solicitud.",
+    "SMS_REDIRECT": "Se abrirá tu app de mensajes para completar la solicitud por SMS.",
+    "CONTACT_CHANNEL": "¿Cómo te contactamos?",
+    "CHANNEL_WHATSAPP": "WhatsApp",
+    "CHANNEL_SMS": "Mensaje de Texto (SMS)",
     "SUMMARY_TITLE": "Revisa Tu Solicitud",
     "SUMMARY_NAME": "Nombre",
     "SUMMARY_PHONE": "Teléfono",
@@ -103,13 +107,23 @@
     "SUMMARY_FREQUENCY": "Frecuencia",
     "SUMMARY_PART": "Parte Dañada",
     "SUMMARY_DETAILS": "Detalles",
+    "SUMMARY_CHANNEL": "Método de Contacto",
     "SUMMARY_EDIT": "Editar",
     "SUMMARY_CONFIRM": "Confirmar y Enviar por WhatsApp",
+    "SUMMARY_CONFIRM_WHATSAPP": "Confirmar y Enviar por WhatsApp",
+    "SUMMARY_CONFIRM_SMS": "Confirmar y Enviar por SMS",
     "SUMMARY_CONFIRM_NOTE": "Serás redirigido a WhatsApp con los detalles de tu solicitud."
   },
   "WHATSAPP": {
     "TOOLTIP": "¡Chatea con nosotros por WhatsApp!",
     "ARIA_LABEL": "Contáctanos por WhatsApp",
     "BADGE": "1"
+  },
+  "CONTACT_MENU": {
+    "TOGGLE": "Contáctanos",
+    "WHATSAPP": "WhatsApp",
+    "SMS": "Mensaje de Texto",
+    "EMAIL_PRIMARY": "Escríbenos",
+    "EMAIL_SUPPORT": "Contáctanos"
   }
 }

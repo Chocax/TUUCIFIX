@@ -95,6 +95,10 @@
     "PHOTO_REMINDER": "📸 Have photos of the damage ready to share in the WhatsApp chat!",
     "SUBMIT": "Review My Request",
     "WHATSAPP_REDIRECT": "You will be redirected to WhatsApp to complete your request.",
+    "SMS_REDIRECT": "Your messaging app will open to complete your request via SMS.",
+    "CONTACT_CHANNEL": "How should we contact you?",
+    "CHANNEL_WHATSAPP": "WhatsApp",
+    "CHANNEL_SMS": "Text Message (SMS)",
     "SUMMARY_TITLE": "Review Your Request",
     "SUMMARY_NAME": "Name",
     "SUMMARY_PHONE": "Phone",
@@ -103,13 +107,23 @@
     "SUMMARY_FREQUENCY": "Frequency",
     "SUMMARY_PART": "Damaged Part",
     "SUMMARY_DETAILS": "Details",
+    "SUMMARY_CHANNEL": "Contact Method",
     "SUMMARY_EDIT": "Edit",
     "SUMMARY_CONFIRM": "Confirm & Send via WhatsApp",
+    "SUMMARY_CONFIRM_WHATSAPP": "Confirm & Send via WhatsApp",
+    "SUMMARY_CONFIRM_SMS": "Confirm & Send via SMS",
     "SUMMARY_CONFIRM_NOTE": "You'll be redirected to WhatsApp with your request details."
   },
   "WHATSAPP": {
     "TOOLTIP": "Chat with us on WhatsApp!",
     "ARIA_LABEL": "Contact us on WhatsApp",
     "BADGE": "1"
+  },
+  "CONTACT_MENU": {
+    "TOGGLE": "Contact us",
+    "WHATSAPP": "WhatsApp",
+    "SMS": "Text Message",
+    "EMAIL_PRIMARY": "Email Us",
+    "EMAIL_SUPPORT": "Contact Us"
   }
 }

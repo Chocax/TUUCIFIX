@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { CommonModule } from '@angular/common';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { WhatsappService } from '../../services/whatsapp';
+import { SmsService } from '../../services/sms';
 import { SeoService } from '../../services/seo';
 
 @Component({
@@ -39,6 +40,7 @@ export class RepairForm implements OnInit {
   constructor(
     private fb: FormBuilder,
     private whatsappService: WhatsappService,
+    private smsService: SmsService,
     private seoService: SeoService,
     private translate: TranslateService
   ) {
@@ -49,7 +51,8 @@ export class RepairForm implements OnInit {
       umbrellaModel: ['', Validators.required],
       maintenanceFrequency: ['once'],
       damagedPart: [''],
-      damageDescription: ['']
+      damageDescription: [''],
+      contactChannel: ['whatsapp', Validators.required]
     });
   }
 
@@ -104,6 +107,10 @@ export class RepairForm implements OnInit {
   isFieldValid(fieldName: string): boolean {
     const control = this.repairForm.get(fieldName);
     return !!(control && control.valid && control.value && (control.dirty || control.touched));
+  }
+
+  get isWhatsappChannel(): boolean {
+    return this.repairForm.value.contactChannel !== 'sms';
   }
 
   openSummary() {
@@ -198,8 +205,14 @@ export class RepairForm implements OnInit {
       }
     }
 
-    const whatsappUrl = this.whatsappService.getWhatsappUrl(message);
-    window.open(whatsappUrl, '_blank');
+    const isWhatsapp = v.contactChannel !== 'sms';
+    if (isWhatsapp) {
+      const whatsappUrl = this.whatsappService.getWhatsappUrl(message);
+      window.open(whatsappUrl, '_blank');
+    } else {
+      const smsUrl = this.smsService.getSmsUrl(message);
+      window.open(smsUrl, '_self');
+    }
     this.showSummaryModal = false;
   }
 }
