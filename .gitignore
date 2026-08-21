@@ -1,0 +1,53 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+tuucifix-app/dist/
+tuucifix-app/tmp/
+tuucifix-app/out-tsc/
+tuucifix-app/bazel-out/
+
+# Node
+tuucifix-app/node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+tuucifix-app/.vscode/*
+!tuucifix-app/.vscode/settings.json
+!tuucifix-app/.vscode/tasks.json
+!tuucifix-app/.vscode/launch.json
+!tuucifix-app/.vscode/extensions.json
+!tuucifix-app/.vscode/mcp.json
+.history/*
+
+# Miscellaneous
+tuucifix-app/.angular/
+.sass-cache/
+connect.lock
+coverage/
+libpeerconnection.log
+testem.log
+typings/
+__screenshots__/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Node y Angular (Ignorar globalmente)
+**/node_modules/
+**/.angular/
+
+# Builds
+**/dist/
+**/tmp/
+**/out-tsc/
